@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Return0Software/fwf-server.svg?branch=master)](https://travis-ci.com/Return0Software/fwf-server)
+
 # Flix with Friends Server
 
 ## Development
