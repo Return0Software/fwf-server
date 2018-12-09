@@ -1,8 +1,12 @@
 package com.github.return0software.fwf.resources;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Path("/user")
 public class UserResource {
-
+	@GET
+	public String hello() {
+		return "Hello World";
+	}
 }
