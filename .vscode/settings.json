@@ -1,0 +1,11 @@
+{
+	"[java]": {
+		"editor.codeActionsOnSave": {
+						"source.organizeImports": true
+		},
+		"editor.formatOnSave": true
+	},
+	"java.format.enabled": true,
+	"java.format.comments.enabled": true,
+	"editor.insertSpaces": false
+}

@@ -1,0 +1,7 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 10260
+  adminConnectors:
+    - type: http
+      port: 10261
