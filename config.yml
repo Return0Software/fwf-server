@@ -5,3 +5,8 @@ server:
   adminConnectors:
     - type: http
       port: 10261
+
+graphHost: localhost
+graphPort: 7687
+graphUsername: neo4j
+graphPassword: neo4j
