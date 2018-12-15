@@ -8,6 +8,7 @@
 
 * [Dropwizard](https://www.dropwizard.io/1.3.5/docs/manual/index.html)
 * [Neo4j OGM](https://neo4j.com/docs/ogm-manual/current/reference/)
+* [PMD](https://pmd.github.io/)
 
 ### Dependencies
 

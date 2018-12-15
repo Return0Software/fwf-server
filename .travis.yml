@@ -5,6 +5,9 @@ jdk:
 
 dist: xenial
 
+script:
+  - mvn pmd:pmd
+
 cache:
   directories:
     - $HOME/.m2
