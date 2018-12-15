@@ -6,5 +6,5 @@ import org.neo4j.ogm.annotation.NodeEntity;
 
 @NodeEntity
 public final class Movie extends Entity {
-	public Long tmdbID;
+	public long tmdbID;
 }

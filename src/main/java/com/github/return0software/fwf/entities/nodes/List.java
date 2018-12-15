@@ -17,6 +17,8 @@ public final class List extends Entity {
 	@Relationship(type = "FOLLOWS", direction = Relationship.INCOMING)
 	private Set<ListRole> followers;
 
+	private boolean isPrivate;
+
 	@DateLong
 	Date createdAt;
 

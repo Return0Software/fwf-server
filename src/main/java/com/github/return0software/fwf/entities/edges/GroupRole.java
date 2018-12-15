@@ -3,7 +3,7 @@ package com.github.return0software.fwf.entities.edges;
 import java.util.Date;
 
 import com.github.return0software.fwf.entities.Entity;
-import com.github.return0software.fwf.entities.nodes.List;
+import com.github.return0software.fwf.entities.nodes.Group;
 
 import org.eclipse.jetty.server.Authentication.User;
 import org.neo4j.ogm.annotation.EndNode;
@@ -11,13 +11,13 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 import org.neo4j.ogm.annotation.typeconversion.DateString;
 
-@RelationshipEntity(type = "FOLLOWS")
-public final class ListRole extends Entity {
+@RelationshipEntity(type = "MEMBER_OF")
+public final class GroupRole extends Entity {
 	@StartNode
 	User user;
 
 	@EndNode
-	List list;
+	Group group;
 
 	Role role;
 
@@ -28,9 +28,9 @@ public final class ListRole extends Entity {
 	Date updatedAt;
 
 	enum Role {
-		AUTHOR, ADMIN, FOLLOWER
+		ADMIN, MEMBER
 	}
 
-	public ListRole() {
+	public GroupRole() {
 	}
 }

@@ -6,7 +6,7 @@ import org.neo4j.ogm.annotation.Id;
 public class Entity {
 	@Id
 	@GeneratedValue
-	private Long id;
+	protected Long id;
 
 	public Long getID() {
 		return this.id;
