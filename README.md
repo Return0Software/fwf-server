@@ -11,6 +11,7 @@
 ### Dependencies
 
 * Java >= 1.8
+* Apache Maven (only tested with 3.6)
 
 #### macOS
 
@@ -21,3 +22,9 @@ brew cask install zulu8
 #### Linux
 
 Use your package manager to install OpenJDK 8
+
+### Running the Application
+
+```bash
+mvn exec:java@run
+```
