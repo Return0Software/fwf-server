@@ -1,4 +1,5 @@
 .classpath
+.docker
 .factorypath
 .project
 .settings
