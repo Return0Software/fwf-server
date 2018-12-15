@@ -3,10 +3,9 @@ package com.github.return0software.fwf;
 import com.github.return0software.fwf.health.DefaultHealthCheck;
 import com.github.return0software.fwf.resources.GroupResource;
 import com.github.return0software.fwf.resources.UserResource;
-import com.github.return0software.fwf.services.Neo4jSessionFactory;
+import com.github.return0software.fwf.services.Neo4jSessionFactoryManager;
 
 import org.neo4j.ogm.config.Configuration;
-import org.neo4j.ogm.session.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +31,8 @@ public final class App extends Application<AppConfiguration> {
 		final Configuration graphConfig = new Configuration.Builder()
 				.uri(String.format("bolt://%s:%d", configuration.getHost(), configuration.getPort()))
 				.credentials(configuration.getUsername(), configuration.getPassword()).build();
-		Neo4jSessionFactory.setSessionFactory(new SessionFactory(graphConfig, "com.github.return0software.entites"));
+		Neo4jSessionFactoryManager sessionFactoryManager = new Neo4jSessionFactoryManager(graphConfig);
+		environment.lifecycle().manage(sessionFactoryManager);
 
 		// Resources
 		log.info("Registering resources");
