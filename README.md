@@ -2,6 +2,11 @@
 
 # Flix with Friends Server
 
+## TODO
+
+* Why is a null pointer exception get thrown when I try to use the Follow or
+Membership edge realtionships?
+
 ## Development
 
 ### Documentation
