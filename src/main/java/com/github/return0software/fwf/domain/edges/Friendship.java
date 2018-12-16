@@ -1,9 +1,9 @@
-package com.github.return0software.fwf.entities.edges;
+package com.github.return0software.fwf.domain.edges;
 
 import java.util.Date;
 
-import com.github.return0software.fwf.entities.Entity;
-import com.github.return0software.fwf.entities.nodes.User;
+import com.github.return0software.fwf.domain.Entity;
+import com.github.return0software.fwf.domain.nodes.User;
 
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.RelationshipEntity;
@@ -16,10 +16,10 @@ public class Friendship extends Entity {
 	private Date since;
 
 	@StartNode
-	User user;
+	private User user;
 
 	@EndNode
-	User friend;
+	private User friend;
 
 	public Friendship() {
 	}

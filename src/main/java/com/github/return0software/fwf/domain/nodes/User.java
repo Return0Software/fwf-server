@@ -1,12 +1,13 @@
-package com.github.return0software.fwf.entities.nodes;
+package com.github.return0software.fwf.domain.nodes;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.github.return0software.fwf.entities.Entity;
-import com.github.return0software.fwf.entities.edges.Friendship;
-import com.github.return0software.fwf.entities.edges.ListRole;
+import com.github.return0software.fwf.domain.Entity;
+import com.github.return0software.fwf.domain.edges.Follow;
+import com.github.return0software.fwf.domain.edges.Friendship;
+import com.github.return0software.fwf.domain.edges.Membership;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
@@ -20,13 +21,16 @@ public final class User extends Entity {
 	private Set<Friendship> friends = new HashSet<>();
 
 	@Relationship(type = "FOLLOWS", direction = Relationship.UNDIRECTED)
-	private Set<ListRole> lists = new HashSet<>();
+	private Set<Follow> lists = new HashSet<>();
+
+	@Relationship(type = "MEMBER_OF", direction = Relationship.UNDIRECTED)
+	private Set<Membership> groups = new HashSet<>();
 
 	@DateLong
-	Date createdAt;
+	private Date createdAt;
 
 	@DateLong
-	Date updatedAt;
+	private Date updatedAt;
 
 	public User() {
 	}

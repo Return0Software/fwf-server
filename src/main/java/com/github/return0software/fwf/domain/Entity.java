@@ -1,4 +1,4 @@
-package com.github.return0software.fwf.entities;
+package com.github.return0software.fwf.domain;
 
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;

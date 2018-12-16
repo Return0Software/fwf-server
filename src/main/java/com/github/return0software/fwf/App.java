@@ -1,6 +1,9 @@
 package com.github.return0software.fwf;
 
-import com.github.return0software.fwf.health.DefaultHealthCheck;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
+import com.github.return0software.fwf.health.Neo4jHealthCheck;
 import com.github.return0software.fwf.managed.Neo4jSessionFactoryManager;
 import com.github.return0software.fwf.resources.GroupResource;
 import com.github.return0software.fwf.resources.UserResource;
@@ -10,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.dropwizard.Application;
-import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public final class App extends Application<AppConfiguration> {
@@ -18,10 +20,6 @@ public final class App extends Application<AppConfiguration> {
 
 	public static void main(String[] args) throws Exception {
 		new App().run(args);
-	}
-
-	@Override
-	public void initialize(Bootstrap<AppConfiguration> bootstrap) {
 	}
 
 	@Override
@@ -44,8 +42,10 @@ public final class App extends Application<AppConfiguration> {
 
 		// Health Checks
 		log.info("Registering healthchecks");
-		final DefaultHealthCheck defaultHealthCheck = new DefaultHealthCheck();
+		final Client client = ClientBuilder.newClient();
+		final Neo4jHealthCheck neo4jHealthCheck = new Neo4jHealthCheck(client, configuration.getHost(),
+				configuration.getPort());
 
-		environment.healthChecks().register("default", defaultHealthCheck);
+		environment.healthChecks().register("Neo4j", neo4jHealthCheck);
 	}
 }

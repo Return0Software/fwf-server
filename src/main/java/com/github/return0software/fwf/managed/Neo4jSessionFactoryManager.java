@@ -17,7 +17,7 @@ public class Neo4jSessionFactoryManager implements Managed {
 	@Override
 	public void start() {
 		Neo4jSessionFactoryManager.sessionFactory = new SessionFactory(configuration,
-				"com.github.return0software.fwf.entities");
+				"com.github.return0software.fwf.domain");
 	}
 
 	@Override
