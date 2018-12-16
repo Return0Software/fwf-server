@@ -1,4 +1,4 @@
-package com.github.return0software.fwf.services;
+package com.github.return0software.fwf.managed;
 
 import org.neo4j.ogm.config.Configuration;
 import org.neo4j.ogm.session.Session;

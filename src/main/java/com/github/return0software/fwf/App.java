@@ -1,9 +1,9 @@
 package com.github.return0software.fwf;
 
 import com.github.return0software.fwf.health.DefaultHealthCheck;
+import com.github.return0software.fwf.managed.Neo4jSessionFactoryManager;
 import com.github.return0software.fwf.resources.GroupResource;
 import com.github.return0software.fwf.resources.UserResource;
-import com.github.return0software.fwf.services.Neo4jSessionFactoryManager;
 
 import org.neo4j.ogm.config.Configuration;
 import org.slf4j.Logger;
