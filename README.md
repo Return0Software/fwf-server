@@ -4,8 +4,8 @@
 
 ## TODO
 
-* Why is a null pointer exception get thrown when I try to use the Follow or
-Membership edge realtionships?
+* Why is a null pointer exception get thrown when I try to use the Follow or Membership edge realtionships?
+* ogm.properties file?
 
 ## Development
 
