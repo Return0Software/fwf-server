@@ -32,6 +32,11 @@
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-client</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-ogm-core</artifactId>
 			<version>${neo4j-ogm.version}</version>
