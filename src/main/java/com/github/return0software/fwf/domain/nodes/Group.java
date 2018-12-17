@@ -18,7 +18,7 @@ public final class Group extends Entity {
 	@Relationship(type = "MEMBER_OF", direction = Relationship.UNDIRECTED)
 	private Set<Membership> members;
 
-	@Relationship(type = "OWNS")
+	@Relationship(type = "OWNS", direction = Relationship.OUTGOING)
 	private Set<List> lists = new HashSet<>();
 
 	@DateString

@@ -17,7 +17,7 @@ import org.neo4j.ogm.annotation.typeconversion.DateLong;
 public final class User extends Entity {
 	private String name;
 
-	@Relationship(type = "FRIENDS_WITH", direction = Relationship.OUTGOING)
+	@Relationship(type = "FRIENDS_WITH", direction = Relationship.UNDIRECTED)
 	private Set<Friendship> friends = new HashSet<>();
 
 	@Relationship(type = "FOLLOWS", direction = Relationship.UNDIRECTED)
