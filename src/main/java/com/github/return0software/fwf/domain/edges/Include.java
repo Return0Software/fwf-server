@@ -27,4 +27,12 @@ public class Include extends Entity {
 
 	public Include() {
 	}
+
+	public Date getSince() {
+		return this.since;
+	}
+
+	public User getAddedBy() {
+		return this.addedBy;
+	}
 }

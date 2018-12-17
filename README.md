@@ -4,7 +4,8 @@
 
 ## TODO
 
-* Why is a null pointer exception get thrown when I try to use the Follow or Membership edge realtionships?
+* Why is a null pointer exception getting thrown when I try to use the Follow or Membership edge realtionships?
+    * https://community.neo4j.com/t/experiencing-a-null-pointer-exception-upon-database-schema-initialization/3876
 * ogm.properties file?
 
 ## Development

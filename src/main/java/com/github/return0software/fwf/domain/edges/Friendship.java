@@ -23,4 +23,8 @@ public class Friendship extends Entity {
 
 	public Friendship() {
 	}
+
+	public Date getSince() {
+		return this.since;
+	}
 }

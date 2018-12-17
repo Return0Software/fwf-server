@@ -32,4 +32,16 @@ public final class Membership extends Entity {
 
 	public Membership() {
 	}
+
+	public Role getRole() {
+		return this.role;
+	}
+
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return this.updatedAt;
+	}
 }
