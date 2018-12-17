@@ -16,7 +16,7 @@ import org.neo4j.ogm.annotation.typeconversion.DateString;
 public final class List extends Entity {
 	private String name;
 
-	@Relationship(type = "FOLLOWS", direction = Relationship.UNDIRECTED)
+	@Relationship(type = "FOLLOWS", direction = Relationship.INCOMING)
 	private Set<Follow> followers;
 
 	@Relationship(type = "INCLUDES", direction = Relationship.OUTGOING)

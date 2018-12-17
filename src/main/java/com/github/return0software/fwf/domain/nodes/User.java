@@ -20,10 +20,10 @@ public final class User extends Entity {
 	@Relationship(type = "FRIENDS_WITH", direction = Relationship.UNDIRECTED)
 	private Set<Friendship> friends = new HashSet<>();
 
-	@Relationship(type = "FOLLOWS", direction = Relationship.UNDIRECTED)
+	@Relationship(type = "FOLLOWS", direction = Relationship.OUTGOING)
 	private Set<Follow> lists = new HashSet<>();
 
-	@Relationship(type = "MEMBER_OF", direction = Relationship.UNDIRECTED)
+	@Relationship(type = "MEMBER_OF", direction = Relationship.OUTGOING)
 	private Set<Membership> groups = new HashSet<>();
 
 	@DateLong
