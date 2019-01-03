@@ -16,7 +16,7 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
 public final class App extends Application<AppConfiguration> {
-	private static Logger log = LoggerFactory.getLogger(App.class);
+	private final static Logger log = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
 		new App().run(args);

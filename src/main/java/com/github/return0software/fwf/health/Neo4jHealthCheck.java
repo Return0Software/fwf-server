@@ -9,7 +9,7 @@ import com.codahale.metrics.health.HealthCheck;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Neo4jHealthCheck extends HealthCheck {
+public final class Neo4jHealthCheck extends HealthCheck {
 	private final Client client;
 	private final String url;
 

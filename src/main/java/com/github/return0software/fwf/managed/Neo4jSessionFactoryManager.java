@@ -6,7 +6,7 @@ import org.neo4j.ogm.session.SessionFactory;
 
 import io.dropwizard.lifecycle.Managed;
 
-public class Neo4jSessionFactoryManager implements Managed {
+public final class Neo4jSessionFactoryManager implements Managed {
 	private static SessionFactory sessionFactory;
 	private final Configuration configuration;
 
