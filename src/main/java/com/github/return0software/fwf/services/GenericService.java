@@ -1,7 +1,7 @@
 package com.github.return0software.fwf.services;
 
 import com.github.return0software.fwf.domain.Entity;
-import com.github.return0software.fwf.managed.Neo4jSessionFactoryManager;
+import com.github.return0software.fwf.managed.Neo4jSessionFactory;
 
 import org.neo4j.ogm.session.Session;
 
@@ -10,7 +10,7 @@ abstract class GenericService<T extends Entity> implements Service<T> {
 	private static final int DEPTH_LIST = 0;
 	private static final int DEPTH_ENTITY = 1;
 
-	protected Session session = Neo4jSessionFactoryManager.getNeo4jSession();
+	protected Session session = Neo4jSessionFactory.getNeo4jSession();
 
 	@Override
 	public Iterable<T> findAll() {

@@ -4,16 +4,18 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
 import com.github.return0software.fwf.health.Neo4jHealthCheck;
-import com.github.return0software.fwf.managed.Neo4jSessionFactoryManager;
-import com.github.return0software.fwf.resources.GroupResource;
-import com.github.return0software.fwf.resources.UserResource;
+import com.github.return0software.fwf.managed.Neo4jSessionFactory;
 
-import org.neo4j.ogm.config.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.dropwizard.Application;
+import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
+import io.dropwizard.configuration.SubstitutingSourceProvider;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import ru.vyarus.dropwizard.guice.GuiceBundle;
+import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
 
 public final class App extends Application<AppConfiguration> {
 	private final static Logger log = LoggerFactory.getLogger(App.class);
@@ -23,22 +25,26 @@ public final class App extends Application<AppConfiguration> {
 	}
 
 	@Override
+	public void initialize(Bootstrap<AppConfiguration> bootstrap) {
+		// Allow environment variable overrides
+		// https://www.dropwizard.io/1.3.5/docs/manual/core.html#environment-variables
+		final SubstitutingSourceProvider envSourceProvider = new SubstitutingSourceProvider(
+				bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor(false));
+		bootstrap.setConfigurationSourceProvider(envSourceProvider);
+
+		String packageName = App.class.getPackage().getName();
+		Builder<AppConfiguration> builder = GuiceBundle.builder();
+		GuiceBundle<AppConfiguration> guiceBundle = builder
+				.enableAutoConfig(String.format("%s.resources", packageName), String.format("%s.services", packageName))
+				.build();
+		bootstrap.addBundle(guiceBundle);
+	}
+
+	@Override
 	public void run(AppConfiguration configuration, Environment environment) {
 		// Connecting to the graph
 		log.info("Connecting to the graph");
-		final Configuration graphConfig = new Configuration.Builder()
-				.uri(String.format("bolt://%s:%d", configuration.getHost(), configuration.getPort()))
-				.credentials(configuration.getUsername(), configuration.getPassword()).build();
-		Neo4jSessionFactoryManager sessionFactoryManager = new Neo4jSessionFactoryManager(graphConfig);
-		environment.lifecycle().manage(sessionFactoryManager);
-
-		// Resources
-		log.info("Registering resources");
-		final GroupResource groupResource = new GroupResource();
-		final UserResource userResource = new UserResource();
-
-		environment.jersey().register(groupResource);
-		environment.jersey().register(userResource);
+		environment.lifecycle().manage(Neo4jSessionFactory.getInstance());
 
 		// Health Checks
 		log.info("Registering healthchecks");
