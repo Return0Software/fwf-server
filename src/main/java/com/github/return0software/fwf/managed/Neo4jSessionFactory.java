@@ -2,9 +2,12 @@ package com.github.return0software.fwf.managed;
 
 import com.github.return0software.fwf.App;
 
+import org.neo4j.ogm.config.ClasspathConfigurationSource;
 import org.neo4j.ogm.config.Configuration;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import io.dropwizard.lifecycle.Managed;
 
@@ -16,9 +19,10 @@ import io.dropwizard.lifecycle.Managed;
  * {@link Neo4jSessionFactory#start()} has not been called.
  */
 public final class Neo4jSessionFactory implements Managed {
-	private static Configuration configuration = new Configuration.Builder()
-			.uri(String.format("bolt://%s:%s", System.getenv("NEO4J_HOST"), System.getenv("NEO4J_PORT")))
-			.credentials(System.getenv("NEO4J_USERNAME"), System.getenv("NEO4J_PASSWORD")).build();
+	private final static Logger log = LoggerFactory.getLogger(App.class);
+
+	private static Configuration configuration = new Configuration.Builder(
+			new ClasspathConfigurationSource("ogm.properties")).build();
 
 	private static SessionFactory sessionFactory = new SessionFactory(configuration,
 			String.format("%s.domain", App.class.getPackage().getName()));
@@ -34,6 +38,7 @@ public final class Neo4jSessionFactory implements Managed {
 	 */
 	@Override
 	public void stop() {
+		log.info("Closing the session factory");
 		Neo4jSessionFactory.sessionFactory.close();
 	}
 
