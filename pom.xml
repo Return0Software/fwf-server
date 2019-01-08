@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.return0software</groupId>
+	<groupId>io.r0s.fwf</groupId>
 	<artifactId>fwf-server</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
@@ -106,7 +106,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>${exec-maven-plugin.version}</version>
 				<configuration>
-					<mainClass>com.github.return0software.fwf.App</mainClass>
+					<mainClass>io.r0s.fwf.App</mainClass>
 				</configuration>
 				<executions>
 					<execution>
@@ -115,7 +115,7 @@
               <goal>java</goal>
             </goals>
             <configuration>
-              <mainClass>com.github.return0software.fwf.App</mainClass>
+              <mainClass>io.r0s.fwf.App</mainClass>
               <arguments>
                 <argument>server</argument>
                 <argument>config.yml</argument>
@@ -152,7 +152,7 @@
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.github.return0software.fwf.App</mainClass>
+									<mainClass>io.r0s.fwf.App</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

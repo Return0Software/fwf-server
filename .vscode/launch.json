@@ -2,13 +2,28 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "Debug (Launch)",
+			"request": "launch",
+			"mainClass": "io.r0s.fwf.App",
+			"args": ["server", "config.yml"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "java",
+			"name": "Debug (Attach) - Remote",
+			"request": "attach",
+			"hostName": "localhost",
+			"port": 5005
+		},
+		{
+			"type": "java",
 			"name": "CodeLens (Launch) - App",
 			"request": "launch",
 			"cwd": "${workspaceFolder}",
 			"console": "internalConsole",
 			"stopOnEntry": false,
-			"mainClass": "com.github.return0software.fwf.App",
-			"args": "",
+			"mainClass": "io.r0s.fwf.App",
+			"args": ["server", "config.yml"],
 			"projectName": "fwf-server"
 		}
 	]
