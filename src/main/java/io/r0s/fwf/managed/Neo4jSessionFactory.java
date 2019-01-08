@@ -1,7 +1,5 @@
 package io.r0s.fwf.managed;
 
-import io.r0s.fwf.App;
-
 import org.neo4j.ogm.config.ClasspathConfigurationSource;
 import org.neo4j.ogm.config.Configuration;
 import org.neo4j.ogm.session.Session;
@@ -10,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.dropwizard.lifecycle.Managed;
+import io.r0s.fwf.App;
 
 /**
  * Due to the order of events in DropWizard, the Neo4j configuration has to
@@ -19,7 +18,7 @@ import io.dropwizard.lifecycle.Managed;
  * {@link Neo4jSessionFactory#start()} has not been called.
  */
 public final class Neo4jSessionFactory implements Managed {
-	private final static Logger log = LoggerFactory.getLogger(App.class);
+	private final static Logger log = LoggerFactory.getLogger(Neo4jSessionFactory.class);
 
 	private static Configuration configuration = new Configuration.Builder(
 			new ClasspathConfigurationSource("ogm.properties")).build();
