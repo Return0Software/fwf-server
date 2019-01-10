@@ -13,15 +13,17 @@ import io.r0s.fwf.App;
 /**
  * Due to the order of events in DropWizard, the Neo4j configuration has to
  * circumvent the configuration file. Guice is setup in
- * {@link App#initialize(io.dropwizard.setup.Bootstrap)}. Because of that, the
- * config variables have not been read in, and subsequently
+ * {@link App#initialize({@link io.dropwizard.setup.Bootstrap})}. Because of
+ * that, the config variables have not been read in, and subsequently
  * {@link Neo4jSessionFactory#start()} has not been called.
  */
 public final class Neo4jSessionFactory implements Managed {
 	private final static Logger log = LoggerFactory.getLogger(Neo4jSessionFactory.class);
 
-	private static Configuration configuration = new Configuration.Builder(
-			new ClasspathConfigurationSource("ogm.properties")).build();
+	private static Configuration configuration = System.getenv("FWF_ENVIRONMENT") == null
+			? new Configuration.Builder(new ClasspathConfigurationSource("ogm.properties")).build()
+			: new Configuration.Builder().uri(System.getenv("NEO4J_URI"))
+					.credentials(System.getenv("NEO4J_USERNAME"), System.getenv("NEO4J_PASSWORD")).build();
 
 	private static SessionFactory sessionFactory = new SessionFactory(configuration,
 			String.format("%s.domain", App.class.getPackage().getName()));

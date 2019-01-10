@@ -16,5 +16,6 @@
 	"editor.insertSpaces": false,
 	"java.format.enabled": true,
 	"java.format.comments.enabled": true,
-	"java.format.settings.url": "${workspaceRoot}/style.xml"
+	"java.format.settings.url": "${workspaceRoot}/style.xml",
+	"java.format.settings.profile": "Return0SoftwareStyle"
 }
