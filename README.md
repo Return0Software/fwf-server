@@ -2,10 +2,6 @@
 
 # Flix with Friends Server
 
-## TODO
-
-* Credentials are being duplicated in the `ogm.properties` and `confg.yml` files
-
 ## Development
 
 ### Dependencies
