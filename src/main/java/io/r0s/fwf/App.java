@@ -1,8 +1,5 @@
 package io.r0s.fwf;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,9 +8,9 @@ import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import io.r0s.fwf.config.AppConfiguration;
-import io.r0s.fwf.health.Neo4jHealthCheck;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
 
@@ -32,26 +29,21 @@ public final class App extends Application<AppConfiguration> {
 				bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor(false));
 		bootstrap.setConfigurationSourceProvider(envSourceProvider);
 
-		final String packageName = App.class.getPackage().getName();
 		final Builder<AppConfiguration> builder = GuiceBundle.builder();
-		final GuiceBundle<AppConfiguration> guiceBundle = builder
-				.enableAutoConfig(String.format("%s.resources", packageName), String.format("%s.services", packageName))
-				.build();
+		final GuiceBundle<AppConfiguration> guiceBundle = builder.enableAutoConfig(App.class.getPackage().getName())
+				.printCustomConfigurationBindings().build();
 		bootstrap.addBundle(guiceBundle);
+
+		// enable swagger
+		bootstrap.addBundle(new SwaggerBundle<AppConfiguration>() {
+			@Override
+			protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(AppConfiguration configuration) {
+				return configuration.getSwaggerBundleConfiguration();
+			}
+		});
 	}
 
 	@Override
 	public void run(AppConfiguration configuration, Environment environment) {
-		// Connecting to the graph
-		log.info("Connecting to the graph");
-		environment.lifecycle().manage(Neo4jSessionFactory.getInstance());
-
-		// Health Checks
-		log.info("Registering healthchecks");
-		final Client client = ClientBuilder.newClient();
-		final Neo4jHealthCheck neo4jHealthCheck = new Neo4jHealthCheck(client, configuration.getGraphConfig().getHost(),
-				configuration.getGraphConfig().getPort());
-
-		environment.healthChecks().register("Neo4j", neo4jHealthCheck);
 	}
 }

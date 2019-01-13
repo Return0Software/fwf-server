@@ -5,6 +5,17 @@ server:
   adminConnectors:
     - type: http
       port: 10261
+  allowedMethods:
+    - GET
+    - DELETE
+    - PUT
+    - POST
+
+logging:
+  level: INFO
+
+swagger:
+  resourcePackage: io.r0s.fwf.resources
 
 graph:
   host: localhost
