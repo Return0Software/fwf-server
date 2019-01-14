@@ -11,29 +11,29 @@ public final class GraphConfiguration {
 
 	@NotNull
 	@JsonProperty
-	private Integer port;
-
-	@NotNull
-	@JsonProperty
 	private String username;
 
 	@NotNull
 	@JsonProperty
 	private String password;
 
-	public String getHost() {
-		return this.host;
+	@NotNull
+	@JsonProperty
+	private BoltConfiguration bolt;
+
+	@NotNull
+	@JsonProperty
+	private HttpConfiguration http;
+
+	private static final class BoltConfiguration {
+		@NotNull
+		@JsonProperty
+		private Integer port;
 	}
 
-	public int getPort() {
-		return this.port;
-	}
-
-	public String getUsername() {
-		return this.username;
-	}
-
-	public String getPassword() {
-		return this.password;
+	private static final class HttpConfiguration {
+		@NotNull
+		@JsonProperty
+		private Integer port;
 	}
 }

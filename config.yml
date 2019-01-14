@@ -5,9 +5,23 @@ server:
   adminConnectors:
     - type: http
       port: 10261
+  allowedMethods:
+    - GET
+    - DELETE
+    - PUT
+    - POST
+
+logging:
+  level: INFO
+
+swagger:
+  resourcePackage: io.r0s.fwf.resources
 
 graph:
   host: localhost
-  port: 7687
   username: neo4j
   password: neo4j
+  bolt:
+    port: 7687
+  http:
+    port: 7474
