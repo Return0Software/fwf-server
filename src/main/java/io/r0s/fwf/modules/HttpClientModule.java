@@ -17,7 +17,7 @@ public class HttpClientModule extends DropwizardAwareModule<AppConfiguration> {
 
 	@Override
 	protected void configure() {
-		log.info("CONFIGURING CLIENT");
+		log.info("Configuring JerseyClient");
 		this.bind(Client.class).annotatedWith(Names.named("JerseyClient"))
 				.toInstance(new JerseyClientBuilder(this.environment())
 						.using(this.configuration().getJerseyClientConfiguration()).build(App.class.getSimpleName()));
