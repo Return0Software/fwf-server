@@ -2,17 +2,13 @@ package io.r0s.fwf.services;
 
 import javax.inject.Inject;
 
-import io.r0s.fwf.domain.nodes.User;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
+import io.r0s.fwf.repositories.UserRepository;
 
-public class UserService extends GenericService<User> implements IUserService {
+public class UserService {
+	private final UserRepository UserRepository;
+
 	@Inject
-	public UserService(final Neo4jSessionFactory sessionFactory) {
-		super(sessionFactory);
-	}
-
-	@Override
-	protected Class<User> getEntityType() {
-		return User.class;
+	public UserService(final UserRepository UserRepository) {
+		this.UserRepository = UserRepository;
 	}
 }

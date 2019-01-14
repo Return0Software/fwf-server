@@ -1,13 +1,13 @@
-package io.r0s.fwf.services;
+package io.r0s.fwf.repositories;
 
 import javax.inject.Inject;
 
 import io.r0s.fwf.domain.nodes.Movie;
 import io.r0s.fwf.managed.Neo4jSessionFactory;
 
-public class MovieService extends GenericService<Movie> implements IMovieService {
+public class MovieRepository extends GenericRepository<Movie> implements IMovieRepository {
 	@Inject
-	public MovieService(final Neo4jSessionFactory sessionFactory) {
+	public MovieRepository(final Neo4jSessionFactory sessionFactory) {
 		super(sessionFactory);
 	}
 

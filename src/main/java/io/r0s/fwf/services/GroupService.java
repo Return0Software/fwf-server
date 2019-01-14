@@ -2,17 +2,13 @@ package io.r0s.fwf.services;
 
 import javax.inject.Inject;
 
-import io.r0s.fwf.domain.nodes.Group;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
+import io.r0s.fwf.repositories.GroupRepository;
 
-public class GroupService extends GenericService<Group> implements IGroupService {
+public class GroupService {
+	private final GroupRepository groupRepository;
+
 	@Inject
-	public GroupService(final Neo4jSessionFactory sessionFactory) {
-		super(sessionFactory);
-	}
-
-	@Override
-	protected Class<Group> getEntityType() {
-		return Group.class;
+	public GroupService(final GroupRepository groupRepository) {
+		this.groupRepository = groupRepository;
 	}
 }

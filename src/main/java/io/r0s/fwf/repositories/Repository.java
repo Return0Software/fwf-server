@@ -1,8 +1,8 @@
-package io.r0s.fwf.services;
+package io.r0s.fwf.repositories;
 
 import io.r0s.fwf.domain.Entity;
 
-interface Service<T extends Entity> {
+interface Repository<T extends Entity> {
 	Iterable<T> findAll();
 
 	T find(Long id);

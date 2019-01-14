@@ -1,13 +1,13 @@
-package io.r0s.fwf.services;
+package io.r0s.fwf.repositories;
 
 import javax.inject.Inject;
 
 import io.r0s.fwf.domain.nodes.List;
 import io.r0s.fwf.managed.Neo4jSessionFactory;
 
-public class ListService extends GenericService<List> implements IListService {
+public class ListRepository extends GenericRepository<List> implements IListRepository {
 	@Inject
-	public ListService(final Neo4jSessionFactory sessionFactory) {
+	public ListRepository(final Neo4jSessionFactory sessionFactory) {
 		super(sessionFactory);
 	}
 
