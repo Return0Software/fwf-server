@@ -2,15 +2,16 @@ package io.r0s.fwf.domain.edges;
 
 import java.util.Date;
 
-import io.r0s.fwf.domain.Entity;
-import io.r0s.fwf.domain.nodes.List;
-import io.r0s.fwf.domain.nodes.User;
-
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 import org.neo4j.ogm.annotation.typeconversion.DateString;
 
+import io.r0s.fwf.domain.Entity;
+import io.r0s.fwf.domain.nodes.List;
+import io.r0s.fwf.domain.nodes.User;
+
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @RelationshipEntity(type = "FOLLOWS")
 public final class Follow extends Entity {
 	@StartNode

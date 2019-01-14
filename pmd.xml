@@ -10,8 +10,5 @@
 	</description>
 
 	<rule ref="category/java/bestpractices.xml">
-		<exclude name="UnusedLocalVariable" />
-		<exclude name="UnusedPrivateField" />
-		<exclude name="UnusedPrivateMethod" />
 	</rule>
 </ruleset>

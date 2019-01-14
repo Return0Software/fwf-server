@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 public final class GraphConfiguration {
 	@NotNull
 	@JsonProperty
@@ -25,12 +26,14 @@ public final class GraphConfiguration {
 	@JsonProperty
 	private HttpConfiguration http;
 
+	@SuppressWarnings({ "PMD.UnusedPrivateField" })
 	private static final class BoltConfiguration {
 		@NotNull
 		@JsonProperty
 		private Integer port;
 	}
 
+	@SuppressWarnings({ "PMD.UnusedPrivateField" })
 	private static final class HttpConfiguration {
 		@NotNull
 		@JsonProperty

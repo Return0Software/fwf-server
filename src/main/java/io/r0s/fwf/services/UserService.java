@@ -4,11 +4,12 @@ import javax.inject.Inject;
 
 import io.r0s.fwf.repositories.UserRepository;
 
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 public class UserService {
-	private final UserRepository UserRepository;
+	private final UserRepository userRepository;
 
 	@Inject
-	public UserService(final UserRepository UserRepository) {
-		this.UserRepository = UserRepository;
+	public UserService(final UserRepository userRepository) {
+		this.userRepository = userRepository;
 	}
 }

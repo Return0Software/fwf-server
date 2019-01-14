@@ -13,6 +13,7 @@ import io.r0s.fwf.modules.HttpClientModule;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
 
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 public final class App extends Application<AppConfiguration> {
 	private final static Logger log = LoggerFactory.getLogger(App.class);
 

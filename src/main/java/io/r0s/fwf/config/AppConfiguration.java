@@ -9,6 +9,7 @@ import io.dropwizard.Configuration;
 import io.dropwizard.client.JerseyClientConfiguration;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 public final class AppConfiguration extends Configuration {
 	@NotNull
 	@Valid

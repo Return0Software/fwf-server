@@ -4,15 +4,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.typeconversion.DateLong;
+
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Follow;
 import io.r0s.fwf.domain.edges.Friendship;
 import io.r0s.fwf.domain.edges.Membership;
 
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
-import org.neo4j.ogm.annotation.typeconversion.DateLong;
-
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class User extends Entity {
 	private String name;

@@ -4,14 +4,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import io.r0s.fwf.domain.Entity;
-import io.r0s.fwf.domain.edges.Follow;
-import io.r0s.fwf.domain.edges.Include;
-
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.annotation.typeconversion.DateString;
 
+import io.r0s.fwf.domain.Entity;
+import io.r0s.fwf.domain.edges.Follow;
+import io.r0s.fwf.domain.edges.Include;
+
+@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class List extends Entity {
 	private String name;
