@@ -8,10 +8,10 @@ import io.r0s.fwf.services.UserService;
 
 @Path("/users")
 public final class UserResource {
-	UserService userService;
+	final UserService userService;
 
 	@Inject
-	public UserResource(UserService userService) {
+	public UserResource(final UserService userService) {
 		this.userService = userService;
 	}
 

@@ -8,10 +8,10 @@ import io.r0s.fwf.services.GroupService;
 
 @Path("/groups")
 public final class GroupResource {
-	GroupService groupService;
+	final GroupService groupService;
 
 	@Inject
-	public GroupResource(GroupService groupService) {
+	public GroupResource(final GroupService groupService) {
 		this.groupService = groupService;
 	}
 
