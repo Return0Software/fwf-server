@@ -8,8 +8,6 @@ import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.federecio.dropwizard.swagger.SwaggerBundle;
-import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import io.r0s.fwf.config.AppConfiguration;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
@@ -31,16 +29,17 @@ public final class App extends Application<AppConfiguration> {
 
 		final Builder<AppConfiguration> builder = GuiceBundle.builder();
 		final GuiceBundle<AppConfiguration> guiceBundle = builder.enableAutoConfig(App.class.getPackage().getName())
-				.printCustomConfigurationBindings().build();
+				.build();
 		bootstrap.addBundle(guiceBundle);
 
 		// enable swagger
-		bootstrap.addBundle(new SwaggerBundle<AppConfiguration>() {
-			@Override
-			protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(AppConfiguration configuration) {
-				return configuration.getSwaggerBundleConfiguration();
-			}
-		});
+		// bootstrap.addBundle(new SwaggerBundle<AppConfiguration>() {
+		// @Override
+		// protected SwaggerBundleConfiguration
+		// getSwaggerBundleConfiguration(AppConfiguration configuration) {
+		// return configuration.getSwaggerBundleConfiguration();
+		// }
+		// });
 	}
 
 	@Override

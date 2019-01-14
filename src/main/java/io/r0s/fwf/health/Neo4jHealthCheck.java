@@ -20,29 +20,12 @@ public final class Neo4jHealthCheck extends NamedHealthCheck {
 	private final static Logger log = LoggerFactory.getLogger(Neo4jHealthCheck.class);
 
 	private final Client client;
-
-	@Inject
-	@Config("graph.host")
-	private String host;
-
-	@Inject
-	@Config("graph.port")
-	private Integer port;
-
-	@Inject
-	@Config("graph.username")
-	private String username;
-
-	@Inject
-	@Config("graph.password")
-	private String password;
-
 	private final String url;
 
-	public Neo4jHealthCheck() {
+	@Inject
+	public Neo4jHealthCheck(@Config("graph.host") final String host, @Config("graph.http.port") final Integer port) {
+		this.url = String.format("http://%s:%d", host, port);
 		this.client = ClientBuilder.newClient();
-		this.url = String.format("http://%s:%d", this.host, this.port);
-		log.info("URL: {}", this.url);
 	}
 
 	@Override

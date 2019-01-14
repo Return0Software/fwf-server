@@ -11,13 +11,29 @@ public final class GraphConfiguration {
 
 	@NotNull
 	@JsonProperty
-	private Integer port;
-
-	@NotNull
-	@JsonProperty
 	private String username;
 
 	@NotNull
 	@JsonProperty
 	private String password;
+
+	@NotNull
+	@JsonProperty
+	private BoltConfiguration bolt;
+
+	@NotNull
+	@JsonProperty
+	private HttpConfiguration http;
+
+	private static final class BoltConfiguration {
+		@NotNull
+		@JsonProperty
+		private Integer port;
+	}
+
+	private static final class HttpConfiguration {
+		@NotNull
+		@JsonProperty
+		private Integer port;
+	}
 }

@@ -14,59 +14,44 @@ import ru.vyarus.dropwizard.guice.module.yaml.bind.Config;
 
 /**
  * Due to the order of events in DropWizard, the Neo4j configuration has to
- * circumvent the configuration file. Guice is setup in
- * {@link App#initialize({@link io.dropwizard.setup.Bootstrap})}. Because of
- * that, the config variables have not been read in, and subsequently
- * {@link Neo4jSessionFactory#start()} has not been called.
+ * circumvent the normal {@link Managed} way of things. Guice creates its
+ * injectables before DropWizard ever calls {@link Managed#start()}.
  */
 public final class Neo4jSessionFactory implements Managed {
 	private final static Logger log = LoggerFactory.getLogger(Neo4jSessionFactory.class);
 
-	@Inject
-	@Config("graph.host")
-	private static String host;
+	private SessionFactory sessionFactory;
 
 	@Inject
-	@Config("graph.port")
-	private static Integer port;
+	public Neo4jSessionFactory(@Config("graph.host") final String host, @Config("graph.bolt.port") final Integer port,
+			@Config("graph.username") final String username, @Config("graph.password") final String password) {
+		log.info("Creating session factory");
+		final Configuration configuration = new Configuration.Builder().uri(String.format("bolt://%s:%d", host, port))
+				.credentials(username, password).build();
+		this.sessionFactory = new SessionFactory(configuration,
+				String.format("%s.domain", App.class.getPackage().getName()));
+	}
 
-	@Inject
-	@Config("graph.username")
-	private static String username;
-
-	@Inject
-	@Config("graph.password")
-	private static String password;
-
-	private static final Configuration configuration = new Configuration.Builder()
-			.uri(String.format("bolt://%s:%d", host, port)).credentials(username, password).build();
-
-	private static final SessionFactory sessionFactory = new SessionFactory(configuration,
-			String.format("%s.domain", App.class.getPackage().getName()));
-
-	private static final Neo4jSessionFactory factory = new Neo4jSessionFactory();
-
+	/**
+	 * Starts the session factory on server startup
+	 */
 	@Override
 	public void start() {
 	}
 
 	/**
-	 * Close the session factory on server shutdown.
+	 * Closes the session factory on server shutdown
 	 */
 	@Override
 	public void stop() {
-		log.info("Closing the session factory");
-		Neo4jSessionFactory.sessionFactory.close();
-	}
-
-	public static Neo4jSessionFactory getInstance() {
-		return Neo4jSessionFactory.factory;
+		log.info("Closing session factory");
+		this.sessionFactory.close();
 	}
 
 	/**
 	 * @return {@link Session}
 	 */
-	public static Session getNeo4jSession() {
-		return Neo4jSessionFactory.sessionFactory.openSession();
+	public Session getNeo4jSession() {
+		return this.sessionFactory.openSession();
 	}
 }

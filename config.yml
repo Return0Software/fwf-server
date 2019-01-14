@@ -19,6 +19,9 @@ swagger:
 
 graph:
   host: localhost
-  port: 7687
   username: neo4j
   password: neo4j
+  bolt:
+    port: 7687
+  http:
+    port: 7474
