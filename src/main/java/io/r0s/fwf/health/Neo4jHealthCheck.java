@@ -31,17 +31,21 @@ public final class Neo4jHealthCheck extends NamedHealthCheck {
 
 	@Override
 	protected Result check() throws Exception {
+		log.info("Neo4j health check in progress");
 		Optional<Response> response = Optional.ofNullable(
 				client.target(this.url).request(MediaType.APPLICATION_JSON).buildGet().invoke(Response.class));
 		if (response.isPresent()) {
 			Response r = response.get();
 			if (r.bolt == null || r.management == null || r.data == null) {
+				log.info("Neo4j is unhealthy");
 				return Result.unhealthy(String.format("Unexpected response from Neo4j server (%s)", this.url));
 			}
 
+			log.info("Neo4j is healthy");
 			return Result.healthy();
 		}
 
+		log.info("Neo4j is unhealthy");
 		return Result.unhealthy(String.format("No response from Neo4j server (%s)", this.url));
 	}
 
