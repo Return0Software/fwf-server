@@ -9,6 +9,7 @@ import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.r0s.fwf.config.AppConfiguration;
+import io.r0s.fwf.modules.HttpClientModule;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
 
@@ -29,7 +30,7 @@ public final class App extends Application<AppConfiguration> {
 
 		final Builder<AppConfiguration> builder = GuiceBundle.builder();
 		final GuiceBundle<AppConfiguration> guiceBundle = builder.enableAutoConfig(App.class.getPackage().getName())
-				.build();
+				.modules(new HttpClientModule()).build();
 		bootstrap.addBundle(guiceBundle);
 
 		// enable swagger

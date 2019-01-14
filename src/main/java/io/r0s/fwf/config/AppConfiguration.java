@@ -6,13 +6,19 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.client.JerseyClientConfiguration;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public final class AppConfiguration extends Configuration {
 	@NotNull
 	@Valid
 	@JsonProperty("swagger")
-	private SwaggerBundleConfiguration swaggerBundleConfiguration;
+	private SwaggerBundleConfiguration swaggerBundleConfiguration = new SwaggerBundleConfiguration();
+
+	@Valid
+	@NotNull
+	@JsonProperty("jerseyClient")
+	private JerseyClientConfiguration jerseyClient = new JerseyClientConfiguration();
 
 	@NotNull
 	@Valid
@@ -21,5 +27,9 @@ public final class AppConfiguration extends Configuration {
 
 	public SwaggerBundleConfiguration getSwaggerBundleConfiguration() {
 		return this.swaggerBundleConfiguration;
+	}
+
+	public JerseyClientConfiguration getJerseyClientConfiguration() {
+		return this.jerseyClient;
 	}
 }

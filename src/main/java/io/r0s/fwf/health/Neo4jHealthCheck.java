@@ -4,11 +4,11 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.inject.name.Named;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +23,10 @@ public final class Neo4jHealthCheck extends NamedHealthCheck {
 	private final String url;
 
 	@Inject
-	public Neo4jHealthCheck(@Config("graph.host") final String host, @Config("graph.http.port") final Integer port) {
+	public Neo4jHealthCheck(@Named("JerseyClient") final Client client, @Config("graph.host") final String host,
+			@Config("graph.http.port") final Integer port) {
 		this.url = String.format("http://%s:%d", host, port);
-		this.client = ClientBuilder.newClient();
+		this.client = client;
 	}
 
 	@Override
