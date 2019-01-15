@@ -13,9 +13,16 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
   },
+	"java.completion.importOrder": [
+		"java",
+		"javax",
+		"com",
+		"org",
+		"io"
+	],
 	"editor.insertSpaces": false,
+	"java.completion.overwrite": false,
 	"java.format.enabled": true,
 	"java.format.comments.enabled": true,
-	"java.format.settings.url": "${workspaceRoot}/style.xml",
-	"java.format.settings.profile": "Return0SoftwareStyle"
+	"java.format.settings.profile": "Return0SoftwareStyle",
 }

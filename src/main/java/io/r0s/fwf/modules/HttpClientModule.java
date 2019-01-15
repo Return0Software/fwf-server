@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.r0s.fwf.App;
 import io.r0s.fwf.config.AppConfiguration;
+
 import ru.vyarus.dropwizard.guice.module.support.DropwizardAwareModule;
 
 public class HttpClientModule extends DropwizardAwareModule<AppConfiguration> {

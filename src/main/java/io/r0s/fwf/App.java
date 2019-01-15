@@ -10,6 +10,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.r0s.fwf.config.AppConfiguration;
 import io.r0s.fwf.modules.HttpClientModule;
+
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 import ru.vyarus.dropwizard.guice.GuiceBundle.Builder;
 

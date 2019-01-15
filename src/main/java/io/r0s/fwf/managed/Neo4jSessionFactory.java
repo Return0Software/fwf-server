@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import io.dropwizard.lifecycle.Managed;
 import io.r0s.fwf.App;
+
 import ru.vyarus.dropwizard.guice.module.yaml.bind.Config;
 
 /**
