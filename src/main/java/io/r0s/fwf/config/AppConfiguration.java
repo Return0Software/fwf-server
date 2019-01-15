@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.client.JerseyClientConfiguration;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import io.r0s.fwf.config.graph.GraphConfiguration;
 
 @SuppressWarnings({ "PMD.UnusedPrivateField" })
 public final class AppConfiguration extends Configuration {

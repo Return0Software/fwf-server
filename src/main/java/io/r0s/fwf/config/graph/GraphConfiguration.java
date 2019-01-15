@@ -1,4 +1,4 @@
-package io.r0s.fwf.config;
+package io.r0s.fwf.config.graph;
 
 import javax.validation.constraints.NotNull;
 
@@ -25,18 +25,4 @@ public final class GraphConfiguration {
 	@NotNull
 	@JsonProperty
 	private HttpConfiguration http;
-
-	@SuppressWarnings({ "PMD.UnusedPrivateField" })
-	private static final class BoltConfiguration {
-		@NotNull
-		@JsonProperty
-		private Integer port;
-	}
-
-	@SuppressWarnings({ "PMD.UnusedPrivateField" })
-	private static final class HttpConfiguration {
-		@NotNull
-		@JsonProperty
-		private Integer port;
-	}
 }
