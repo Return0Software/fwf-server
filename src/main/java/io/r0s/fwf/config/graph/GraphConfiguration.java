@@ -14,6 +14,7 @@ public class GraphConfiguration {
 	private String host;
 	private String username;
 	private String password;
+	private Boolean veriifyConnection;
 
 	@Autowired
 	private BoltConfiguration bolt;
@@ -23,6 +24,10 @@ public class GraphConfiguration {
 
 	public String getHost() {
 		return this.host;
+	}
+
+	public Boolean getVerifyConnection() {
+		return this.veriifyConnection;
 	}
 
 	public String getUsername() {
@@ -43,6 +48,10 @@ public class GraphConfiguration {
 
 	public void setHost(final String host) {
 		this.host = host;
+	}
+
+	public void setVerifyConnection(final Boolean verifyConnection) {
+		this.veriifyConnection = verifyConnection;
 	}
 
 	public void setUsername(final String username) {

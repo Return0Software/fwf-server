@@ -1,5 +1,7 @@
 package io.r0s.fwf.factories;
 
+import java.util.Optional;
+
 import javax.annotation.PreDestroy;
 
 import org.neo4j.ogm.config.Configuration;
@@ -20,8 +22,11 @@ public final class Neo4jSessionFactory {
 
 	public Neo4jSessionFactory(final GraphConfiguration graphConfiguration) {
 		log.debug("Creating session factory");
-		final Configuration configuration = new Configuration.Builder().uri(String.format("bolt://%s:%d", graphConfiguration.getHost(), graphConfiguration.getBoltConfiguration().getPort()))
-				.credentials(graphConfiguration.getUsername(), graphConfiguration.getPassword()).build();
+		final Configuration configuration = new Configuration.Builder()
+				.uri(String.format("bolt://%s:%d", graphConfiguration.getHost(),
+						graphConfiguration.getBoltConfiguration().getPort()))
+				.credentials(graphConfiguration.getUsername(), graphConfiguration.getPassword())
+				.verifyConnection(Optional.ofNullable(graphConfiguration.getVerifyConnection()).orElse(false)).build();
 		this.sessionFactory = new SessionFactory(configuration,
 				String.format("%s.domain", App.class.getPackage().getName()));
 	}
