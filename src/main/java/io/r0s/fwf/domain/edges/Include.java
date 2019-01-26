@@ -12,7 +12,6 @@ import io.r0s.fwf.domain.nodes.List;
 import io.r0s.fwf.domain.nodes.Movie;
 import io.r0s.fwf.domain.nodes.User;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @RelationshipEntity(type = "INCLUDES")
 public class Include extends Entity {
 	@DateString

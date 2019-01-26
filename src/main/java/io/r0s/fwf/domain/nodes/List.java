@@ -12,7 +12,6 @@ import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Follow;
 import io.r0s.fwf.domain.edges.Include;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class List extends Entity {
 	private String name;

@@ -13,7 +13,6 @@ import io.r0s.fwf.domain.edges.Follow;
 import io.r0s.fwf.domain.edges.Friendship;
 import io.r0s.fwf.domain.edges.Membership;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class User extends Entity {
 	private String name;

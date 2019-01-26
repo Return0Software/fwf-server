@@ -11,7 +11,6 @@ import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.nodes.List;
 import io.r0s.fwf.domain.nodes.User;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @RelationshipEntity(type = "FOLLOWS")
 public final class Follow extends Entity {
 	@StartNode

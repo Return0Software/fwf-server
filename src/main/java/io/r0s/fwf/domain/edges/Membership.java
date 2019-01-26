@@ -11,7 +11,6 @@ import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.nodes.Group;
 import io.r0s.fwf.domain.nodes.User;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @RelationshipEntity(type = "MEMBER_OF")
 public final class Membership extends Entity {
 	@StartNode
