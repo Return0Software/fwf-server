@@ -3,11 +3,10 @@ package io.r0s.fwf.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.r0s.fwf.repositories.UserRepository;
+import io.r0s.fwf.repositories.MovieRepository;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @Service
-public class UserService {
+public class MovieService {
 	@Autowired
-	private UserRepository userRepository;
+	private MovieRepository movieRepository;
 }

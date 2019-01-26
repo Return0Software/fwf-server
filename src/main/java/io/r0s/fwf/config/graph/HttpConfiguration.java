@@ -1,12 +1,19 @@
 package io.r0s.fwf.config.graph;
 
-import javax.validation.constraints.NotNull;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+@Configuration
+@ConfigurationProperties("graph.http")
 @SuppressWarnings({ "PMD.UnusedPrivateField" })
-public final class HttpConfiguration {
-	@NotNull
-	@JsonProperty
+public class HttpConfiguration {
 	private Integer port;
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
+	public Integer getPort() {
+		return this.port;
+	}
 }

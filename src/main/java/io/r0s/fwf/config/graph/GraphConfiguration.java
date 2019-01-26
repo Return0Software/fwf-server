@@ -1,28 +1,55 @@
 package io.r0s.fwf.config.graph;
 
-import javax.validation.constraints.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+@Configuration
+@ConfigurationProperties("graph")
 @SuppressWarnings({ "PMD.UnusedPrivateField" })
-public final class GraphConfiguration {
-	@NotNull
-	@JsonProperty
+public class GraphConfiguration {
+	private final static Logger log = LoggerFactory.getLogger(GraphConfiguration.class);
 	private String host;
-
-	@NotNull
-	@JsonProperty
 	private String username;
-
-	@NotNull
-	@JsonProperty
 	private String password;
 
-	@NotNull
-	@JsonProperty
+	@Autowired
 	private BoltConfiguration bolt;
 
-	@NotNull
-	@JsonProperty
+	@Autowired
 	private HttpConfiguration http;
+
+	public String getHost() {
+		return this.host;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public BoltConfiguration getBoltConfiguration() {
+		return this.bolt;
+	}
+
+	public HttpConfiguration getHttpConfiguration() {
+		return this.http;
+	}
+
+	public void setHost(final String host) {
+		this.host = host;
+	}
+
+	public void setUsername(final String username) {
+		this.username = username;
+	}
+
+	public void setPassword(final String password) {
+		this.password = password;
+	}
 }

@@ -1,12 +1,12 @@
 package io.r0s.fwf.repositories;
 
-import javax.inject.Inject;
+import org.springframework.stereotype.Repository;
 
 import io.r0s.fwf.domain.nodes.Movie;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
+import io.r0s.fwf.factories.Neo4jSessionFactory;
 
+@Repository
 public class MovieRepository extends GenericRepository<Movie> implements IMovieRepository {
-	@Inject
 	public MovieRepository(final Neo4jSessionFactory sessionFactory) {
 		super(sessionFactory);
 	}

@@ -1,12 +1,12 @@
 package io.r0s.fwf.repositories;
 
-import javax.inject.Inject;
+import org.springframework.stereotype.Repository;
 
 import io.r0s.fwf.domain.nodes.User;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
+import io.r0s.fwf.factories.Neo4jSessionFactory;
 
+@Repository
 public class UserRepository extends GenericRepository<User> implements IUserRepository {
-	@Inject
 	public UserRepository(final Neo4jSessionFactory sessionFactory) {
 		super(sessionFactory);
 	}
