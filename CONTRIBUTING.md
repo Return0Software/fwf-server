@@ -16,7 +16,7 @@ your contributions to the code, go through the following commands:
 mvn compile
 mvn pmd:check
 mvn test
-mvn exec:java@run # if necessary
+mvn spring-boot:run # if necessary
 ```
 
 At this point, make a commit, and head over to GitHub to create a PR where a
@@ -24,7 +24,7 @@ maintainer will review your PR, and submit feedback if necessary.
 
 ## 3rd Party Documentation
 
-* [Dropwizard](https://www.dropwizard.io/1.3.5/docs/manual/index.html)
+* [Spring](http://spring.io/projects/spring-boot)
 * [Neo4j OGM](https://neo4j.com/docs/ogm-manual/current/reference/)
 * [PMD](https://pmd.github.io/)
 

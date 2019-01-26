@@ -30,5 +30,5 @@ Use your package manager to install OpenJDK 8
 ### Running the Application
 
 ```text
-mvn exec:java@run
+mvn spring-boot:run
 ```
