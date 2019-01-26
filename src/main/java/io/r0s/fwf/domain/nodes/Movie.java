@@ -10,7 +10,6 @@ import org.neo4j.ogm.annotation.typeconversion.DateString;
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Include;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class Movie extends Entity {
 	private long tmdbID;

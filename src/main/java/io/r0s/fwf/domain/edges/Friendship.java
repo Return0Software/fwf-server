@@ -10,7 +10,6 @@ import org.neo4j.ogm.annotation.typeconversion.DateString;
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.nodes.User;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @RelationshipEntity(type = "FRIENDS_WITH")
 public class Friendship extends Entity {
 	@DateString

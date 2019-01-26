@@ -1,6 +1,7 @@
 package io.r0s.fwf.domain.nodes;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -10,7 +11,6 @@ import org.neo4j.ogm.annotation.typeconversion.DateString;
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Membership;
 
-@SuppressWarnings({ "PMD.UnusedPrivateField" })
 @NodeEntity
 public final class Group extends Entity {
 	private String name;
@@ -18,8 +18,8 @@ public final class Group extends Entity {
 	@Relationship(type = "MEMBER_OF", direction = Relationship.INCOMING)
 	private Set<Membership> members;
 
-	// @Relationship(type = "OWNS", direction = Relationship.OUTGOING)
-	// private Set<List> lists = new HashSet<>();
+	@Relationship(type = "OWNS", direction = Relationship.OUTGOING)
+	private Set<List> lists = new HashSet<>();
 
 	@DateString
 	private Date createdAt;
