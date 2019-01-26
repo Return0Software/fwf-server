@@ -3,17 +3,18 @@ package io.r0s.fwf.repositories;
 import org.neo4j.ogm.session.Session;
 
 import io.r0s.fwf.domain.Entity;
-import io.r0s.fwf.managed.Neo4jSessionFactory;
+import io.r0s.fwf.factories.Neo4jSessionFactory;
 
-abstract class GenericRepository<T extends Entity> implements Repository<T> {
+abstract class GenericRepository<T extends Entity> implements IRepository<T> {
+
 	// These 2 values should be paid a lot of attention to
 	private static final int DEPTH_LIST = 0;
 	private static final int DEPTH_ENTITY = 1;
 
-	protected final Session session;
+	protected Session session;
 
 	protected GenericRepository(final Neo4jSessionFactory sessionFactory) {
-		this.session = sessionFactory.getNeo4jSession();
+		this.session = sessionFactory.getSession();
 	}
 
 	@Override

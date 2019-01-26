@@ -2,7 +2,7 @@ package io.r0s.fwf.repositories;
 
 import io.r0s.fwf.domain.Entity;
 
-interface Repository<T extends Entity> {
+interface IRepository<T extends Entity> {
 	Iterable<T> findAll();
 
 	T find(Long id);
