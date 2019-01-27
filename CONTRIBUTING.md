@@ -13,7 +13,6 @@ After getting all of this setup, you are ready to develop. Once you have made
 your contributions to the code, go through the following commands:
 
 ```text
-mvn compile
 mvn pmd:check
 mvn test
 mvn spring-boot:run # if necessary
