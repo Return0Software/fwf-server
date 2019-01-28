@@ -6,7 +6,7 @@
 			"request": "launch",
 			"mainClass": "io.r0s.fwf.App",
 			"args": [
-				"-Dspring.profiles.active=dev",
+				"-Dspring.profiles.active=dev"
 			],
 			"cwd": "${workspaceFolder}"
 		},
@@ -26,7 +26,7 @@
 			"stopOnEntry": false,
 			"mainClass": "io.r0s.fwf.App",
 			"args": [
-				"-Dspring.profiles.active=dev",
+				"-Dspring.profiles.active=dev"
 			],
 			"projectName": "fwf-server"
 		},
@@ -39,8 +39,18 @@
 			"mainClass": "io.r0s.fwf.App",
 			"projectName": "fwf-server",
 			"args": [
-				"-Dspring.profiles.active=dev",
-			],
+				"-Dspring.profiles.active=dev"
+			]
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-App<fwf>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "io.r0s.fwf.App",
+			"projectName": "fwf",
+			"args": ""
 		}
 	]
 }
