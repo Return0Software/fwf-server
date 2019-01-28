@@ -4,10 +4,13 @@ services:
   neo4j:
     image: neo4j:3.5
     container_name: fwf-neo4j
-    # volumes:
-    #   - ./docker/data:/data
     restart: "no"
     ports:
       - 7473:7473
       - 7474:7474
       - 7687:7687
+    environment:
+      # - NEO4J_AUTH=neo4j/neo4j
+      - NEO4J_dbms_active__database=FlixWithFriends
+      - NEO4J_dbms_allow__upgrade=true
+      - NEO4J_dbms_security_auth__enabled=false

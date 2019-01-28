@@ -1,6 +1,21 @@
 spring:
   banner:
     location: classpath:banner.txt
+  boot:
+    admin:
+      client:
+        instance:
+          name: Flix with Friends Server
+        url:
+          - http://localhost:8080
+
+# https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints
+# for admin client
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 server:
   port: 8080
@@ -18,3 +33,15 @@ graph:
     port: 7687
   http:
     port: 7474
+
+---
+
+spring:
+  profiles:
+    active:
+      - dev
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true

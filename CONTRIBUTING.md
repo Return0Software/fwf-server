@@ -21,6 +21,10 @@ mvn spring-boot:run # if necessary
 At this point, make a commit, and head over to GitHub to create a PR where a
 maintainer will review your PR, and submit feedback if necessary.
 
+### Admin Client
+
+This project has setup a Spring Boot admin client located at localhost:8080 for your convenience.
+
 ## 3rd Party Documentation
 
 * [Spring](http://spring.io/projects/spring-boot)

@@ -25,7 +25,7 @@ public final class Neo4jHealthCheck extends AbstractHealthIndicator {
 	@Override
 	protected void doHealthCheck(Health.Builder builder) throws Exception {
 		try {
-			final Result result = session.query("MATCH (n) COUNT (n) AS nodes", Collections.emptyMap());
+			final Result result = session.query("MATCH (n) RETURN COUNT (n) AS nodes", Collections.emptyMap());
 			builder.up().withDetail("nodes", result.queryResults().iterator().next().get("nodes"));
 		} catch (Exception e) {
 			log.error("Neo4j health check failed", e);
