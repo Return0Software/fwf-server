@@ -23,7 +23,8 @@ maintainer will review your PR, and submit feedback if necessary.
 
 ### Admin Client
 
-This project has setup a Spring Boot admin client located at localhost:8080 for your convenience.
+This project has setup a Spring Boot admin client located at
+http://localhost:8080/gateway for your convenience.
 
 ## 3rd Party Documentation
 

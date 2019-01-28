@@ -7,7 +7,8 @@ spring:
         instance:
           name: Flix with Friends Server
         url:
-          - http://localhost:8080
+          - http://localhost:8080/gateway
+      context-path: /gateway
 
 # https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints
 # for admin client
@@ -16,6 +17,9 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 server:
   port: 8080
