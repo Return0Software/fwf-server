@@ -1,7 +1,6 @@
 package io.r0s.fwf.domain.nodes;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
