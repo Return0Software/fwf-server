@@ -19,7 +19,7 @@ public final class Group extends Entity {
 	private Set<Membership> members;
 
 	@Relationship(type = "OWNS", direction = Relationship.OUTGOING)
-	private Set<List> lists = new HashSet<>();
+	private Set<List> lists;
 
 	@DateString
 	private Date createdAt;

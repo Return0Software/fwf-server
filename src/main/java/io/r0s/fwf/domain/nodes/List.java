@@ -20,7 +20,7 @@ public final class List extends Entity {
 	private Set<Follow> followers;
 
 	@Relationship(type = "INCLUDES", direction = Relationship.OUTGOING)
-	private Set<Include> movies = new HashSet<>();
+	private Set<Include> movies;
 
 	private boolean isPrivate;
 

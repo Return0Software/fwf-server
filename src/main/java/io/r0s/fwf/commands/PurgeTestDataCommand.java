@@ -1,12 +1,11 @@
 package io.r0s.fwf.commands;
 
 import org.neo4j.ogm.session.Session;
+import org.neo4j.ogm.session.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import io.r0s.fwf.factories.Neo4jSessionFactory;
 
 @Component
 public final class PurgeTestDataCommand implements CommandLineRunner {
@@ -14,8 +13,8 @@ public final class PurgeTestDataCommand implements CommandLineRunner {
 
 	private final Session session;
 
-	public PurgeTestDataCommand(Neo4jSessionFactory sessionFactory) {
-		this.session = sessionFactory.getSession();
+	public PurgeTestDataCommand(final SessionFactory sessionFactory) {
+		this.session = sessionFactory.openSession();
 	}
 
 	@Override

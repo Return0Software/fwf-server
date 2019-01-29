@@ -1,7 +1,6 @@
 package io.r0s.fwf.domain.nodes;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -18,13 +17,13 @@ public final class User extends Entity {
 	private String name;
 
 	@Relationship(type = "FRIENDS_WITH", direction = Relationship.UNDIRECTED)
-	private Set<Friendship> friends = new HashSet<>();
+	private Set<Friendship> friends;
 
 	@Relationship(type = "FOLLOWS", direction = Relationship.OUTGOING)
-	private Set<Follow> lists = new HashSet<>();
+	private Set<Follow> lists;
 
 	@Relationship(type = "MEMBER_OF", direction = Relationship.OUTGOING)
-	private Set<Membership> groups = new HashSet<>();
+	private Set<Membership> groups;
 
 	@DateLong
 	private Date createdAt;

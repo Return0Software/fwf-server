@@ -6,12 +6,11 @@ import java.nio.file.Paths;
 
 import org.neo4j.ogm.model.QueryStatistics;
 import org.neo4j.ogm.session.Session;
+import org.neo4j.ogm.session.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import io.r0s.fwf.factories.Neo4jSessionFactory;
 
 @Component
 public final class LoadTestDataCommand implements CommandLineRunner {
@@ -19,8 +18,8 @@ public final class LoadTestDataCommand implements CommandLineRunner {
 
 	private final Session session;
 
-	public LoadTestDataCommand(Neo4jSessionFactory sessionFactory) {
-		this.session = sessionFactory.getSession();
+	public LoadTestDataCommand(final SessionFactory sessionFactory) {
+		this.session = sessionFactory.openSession();
 	}
 
 	@Override
