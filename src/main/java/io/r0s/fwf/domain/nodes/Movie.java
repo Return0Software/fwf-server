@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-import org.neo4j.ogm.annotation.typeconversion.DateString;
 
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Include;
@@ -17,12 +16,17 @@ public final class Movie extends Entity {
 	@Relationship(type = "INCLUDES", direction = Relationship.INCOMING)
 	private Set<Include> lists;
 
-	@DateString
 	private Date createdAt;
-
-	@DateString
 	private Date updatedAt;
 
 	public Movie() {
+	}
+
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return this.updatedAt;
 	}
 }

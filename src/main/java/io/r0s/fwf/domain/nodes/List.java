@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-import org.neo4j.ogm.annotation.typeconversion.DateString;
 
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Follow;
@@ -21,14 +20,26 @@ public final class List extends Entity {
 	@Relationship(type = "INCLUDES", direction = Relationship.OUTGOING)
 	private Set<Include> movies;
 
-	private boolean isPrivate;
-
-	@DateString
+	private Boolean isPrivate;
 	private Date createdAt;
-
-	@DateString
 	private Date updatedAt;
 
 	public List() {
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public boolean isPrivate() {
+		return this.isPrivate;
+	}
+
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return this.updatedAt;
 	}
 }

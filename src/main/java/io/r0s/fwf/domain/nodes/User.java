@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-import org.neo4j.ogm.annotation.typeconversion.DateLong;
 
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.edges.Follow;
@@ -25,12 +24,21 @@ public final class User extends Entity {
 	@Relationship(type = "MEMBER_OF", direction = Relationship.OUTGOING)
 	private Set<Membership> groups;
 
-	@DateLong
 	private Date createdAt;
-
-	@DateLong
 	private Date updatedAt;
 
 	public User() {
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return this.updatedAt;
 	}
 }
