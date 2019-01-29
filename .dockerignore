@@ -1,0 +1,11 @@
+*.md
+*.yml
+.classpath
+.factorypath
+.git
+.github
+.project
+.settings
+.vscode
+LICENSE
+target

@@ -9,6 +9,13 @@ spring:
         url:
           - http://localhost:8080/gateway
       context-path: /gateway
+  data:
+    neo4j:
+      embedded:
+        enabled: false
+      uri: bolt://localhost:7687
+      username: neo4j
+      password: neo4j
 
 # https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints
 # for admin client
@@ -29,23 +36,25 @@ logging:
     root: ERROR
     io.r0s.fwf: DEBUG
 
-graph:
-  host: localhost
-  username: neo4j
-  password: neo4j
-  bolt:
-    port: 7687
-  http:
-    port: 7474
-
 ---
 
 spring:
-  profiles:
-    active:
-      - dev
+  profiles: dev
+
+logging:
+  level:
+    root: ERROR
+    io.r0s.fwf: DEBUG
 
 management:
   endpoint:
     shutdown:
       enabled: true
+
+---
+
+spring:
+  profiles: docker
+  data:
+    neo4j:
+      uri: bolt://fwf-neo4j:7687

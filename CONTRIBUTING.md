@@ -21,6 +21,20 @@ mvn spring-boot:run # if necessary
 At this point, make a commit, and head over to GitHub to create a PR where a
 maintainer will review your PR, and submit feedback if necessary.
 
+### Docker
+
+This project has extensive support for Docker-based workflows. If you do not
+want to develop on your machine you are more than welcome to use the `fwf`
+service in the `docker-compose-dev.yml` file.
+
+The source code is mounted into the image so it updates as you update it in
+your editor.
+
+> I recommend tunneling into the image and using the command line from
+> there in order to have access to `mvn`. Make sure you include the
+> `docker` profile when launching Spring Boot
+> (`-Dspring.profiles.includes=docker) - @tristan957
+
 ### Admin Client
 
 This project has setup a Spring Boot admin client located at
@@ -30,6 +44,7 @@ http://localhost:8080/gateway for your convenience.
 
 * [Spring](http://spring.io/projects/spring-boot)
 * [Neo4j OGM](https://neo4j.com/docs/ogm-manual/current/reference/)
+* [Spring Data Neo4j](https://neo4j.com/developer/spring-data-neo4j/)
 * [PMD](https://pmd.github.io/)
 
 ## Static Code Analysis

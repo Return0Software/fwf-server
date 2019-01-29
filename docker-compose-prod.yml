@@ -1,0 +1,25 @@
+version: "3.5"
+
+services:
+  neo4j:
+    image: neo4j:3.5
+    container_name: fwf-neo4j
+    restart: "no"
+    ports:
+      - 7473:7473
+      - 7474:7474
+      - 7687:7687
+    environment:
+      # - NEO4J_AUTH=neo4j/neo4j
+      - NEO4J_dbms_active__database=FlixWithFriends
+      - NEO4J_dbms_allow__usapgrade=true
+      - NEO4J_dbms_security_auth__enabled=false
+
+  fwf:
+    build:
+      dockerfile: Dockerfile
+      context: "."
+    container_name: fwf
+    restart: "no"
+    ports:
+      - 8080:8080
