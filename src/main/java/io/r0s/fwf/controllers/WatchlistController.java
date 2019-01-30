@@ -4,19 +4,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.r0s.fwf.services.PlaylistService;
+import io.r0s.fwf.services.WatchlistService;
 
 @RestController
-@RequestMapping(path = "/playlists")
-public final class PlaylistController {
-	private final PlaylistService playlistService;
+@RequestMapping(path = "/watchlists")
+public final class WatchlistController {
+	private final WatchlistService watchlistService;
 
-	public PlaylistController(final PlaylistService playlistService) {
-		this.playlistService = playlistService;
+	public WatchlistController(final WatchlistService watchlistService) {
+		this.watchlistService = watchlistService;
 	}
 
 	@RequestMapping(method = { RequestMethod.GET })
 	public String requestMethodName() {
-		return "Hello Playlist controller";
+		return "Hello Watchlist controller";
 	}
 }

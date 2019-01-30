@@ -8,9 +8,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public final class PlaylistControllerTests {
+public final class WatchlistControllerTests {
 	@Autowired
-	private PlaylistController playlistController;
+	private WatchlistController watchlistController;
 
 	@Test
 	public void example() {

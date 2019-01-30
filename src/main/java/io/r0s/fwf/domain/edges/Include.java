@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.typeconversion.DateString;
 
 import io.r0s.fwf.domain.Entity;
 import io.r0s.fwf.domain.nodes.Movie;
-import io.r0s.fwf.domain.nodes.Playlist;
+import io.r0s.fwf.domain.nodes.Watchlist;
 import io.r0s.fwf.domain.nodes.User;
 
 @RelationshipEntity(type = "INCLUDES")
@@ -20,7 +20,7 @@ public class Include extends Entity {
 	private User addedBy;
 
 	@StartNode
-	private Playlist playlist;
+	private Watchlist watchlist;
 
 	@EndNode
 	private Movie movie;

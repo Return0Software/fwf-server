@@ -17,7 +17,7 @@ public final class Group extends Entity {
 	private Set<Membership> members;
 
 	@Relationship(type = "OWNS", direction = Relationship.OUTGOING)
-	private Set<Playlist> Playlists;
+	private Set<Watchlist> Watchlists;
 
 	private Date createdAt;
 	private Date updatedAt;
