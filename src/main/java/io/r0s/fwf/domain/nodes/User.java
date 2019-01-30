@@ -19,7 +19,7 @@ public final class User extends Entity {
 	private Set<Friendship> friends;
 
 	@Relationship(type = "FOLLOWS", direction = Relationship.OUTGOING)
-	private Set<Follow> lists;
+	private Set<Follow> Playlists;
 
 	@Relationship(type = "MEMBER_OF", direction = Relationship.OUTGOING)
 	private Set<Membership> groups;

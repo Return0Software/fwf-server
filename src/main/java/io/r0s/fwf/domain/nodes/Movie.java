@@ -14,7 +14,7 @@ public final class Movie extends Entity {
 	private long tmdbID;
 
 	@Relationship(type = "INCLUDES", direction = Relationship.INCOMING)
-	private Set<Include> lists;
+	private Set<Include> Playlists;
 
 	private Date createdAt;
 	private Date updatedAt;

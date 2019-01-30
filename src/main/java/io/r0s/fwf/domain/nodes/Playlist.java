@@ -11,7 +11,7 @@ import io.r0s.fwf.domain.edges.Follow;
 import io.r0s.fwf.domain.edges.Include;
 
 @NodeEntity
-public final class List extends Entity {
+public final class Playlist extends Entity {
 	private String name;
 
 	@Relationship(type = "FOLLOWS", direction = Relationship.INCOMING)
@@ -24,7 +24,7 @@ public final class List extends Entity {
 	private Date createdAt;
 	private Date updatedAt;
 
-	public List() {
+	public Playlist() {
 	}
 
 	public String getName() {

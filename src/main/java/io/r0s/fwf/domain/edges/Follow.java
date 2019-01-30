@@ -7,7 +7,7 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
 import io.r0s.fwf.domain.Entity;
-import io.r0s.fwf.domain.nodes.List;
+import io.r0s.fwf.domain.nodes.Playlist;
 import io.r0s.fwf.domain.nodes.User;
 
 @RelationshipEntity(type = "FOLLOWS")
@@ -16,7 +16,7 @@ public final class Follow extends Entity {
 	private User user;
 
 	@EndNode
-	private List list;
+	private Playlist playlist;
 
 	private Role role;
 	private Date since;
@@ -36,8 +36,8 @@ public final class Follow extends Entity {
 		return this.since;
 	}
 
-	public List getList() {
-		return this.list;
+	public Playlist getPlaylist() {
+		return this.playlist;
 	}
 
 	public User getUser() {
