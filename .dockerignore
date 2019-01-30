@@ -4,6 +4,7 @@
 .factorypath
 .git
 .github
+.gitignore
 .project
 .settings
 .vscode
