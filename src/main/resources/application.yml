@@ -3,7 +3,11 @@ spring:
     location: classpath:banner.txt
   boot:
     admin:
+      ui:
+        title: FwF Server Admin Portal
       client:
+        read-timeout: 10000
+        connect-timeout: 10000
         instance:
           name: Flix with Friends Server
         url:
