@@ -1,9 +1,11 @@
 package io.r0s.fwf.controllers;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.r0s.fwf.models.responses.UserResponse;
 import io.r0s.fwf.services.UserService;
 
 @RestController
@@ -15,8 +17,8 @@ public final class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(method = { RequestMethod.GET })
-	public String hello() {
-		return "Hello user controller";
+	@RequestMapping(path = "/{id}", method = { RequestMethod.GET })
+	public UserResponse getUserById(@PathVariable("id") final Long id) {
+		return new UserResponse();
 	}
 }
